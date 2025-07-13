@@ -12,3 +12,12 @@ test:
 
 lint:
 	flake8 app/ tests/
+
+DOCKER_IMAGE_NAME=student-api
+DOCKER_VERSION=0.1.0
+
+docker-build:
+	docker build -t $(DOCKER_IMAGE_NAME):$(DOCKER_VERSION)
+
+docker-shell:
+	docker run -it --rm --env-file .env $(DOCKER_IMAGE_NAME):$(DOCKER_VERSION) sh
